@@ -79,14 +79,14 @@ class DarkGoblin extends Goblin with Hero {
 ```
 16)다트는 List, Map, Set등의 **컬렉션**을 제공한다.
       16-1) List : 같은 타입의 자료를 여러 개 담을 수 있고 특정 인덱스로 접근이 가능하다. **스프레드 연산자 ...**을 사용해 다른 컬렉션 안에 컬렉션을 삽입할 때 사용한다.
-      ```dart
+```dart
       List<dynamic> list = [1,2,3,'hello']; //dynamic은 모든 타입을 대변하는 특수한 타입.
       var items =['mon','tue','wed'];
       
       final items = [1,2,3,4];
       final mynum = [...items,5,6];
       print(mynum); //1,2,3,4,5,6
-      ```
+```
       16-2) Map : 순서가 없고 탐색이 빠른 자료구조 컬렉션이고, **키**와 **값**의 쌍으로 이루어져 있어 키를 이용하여 값을 빠르게 얻을 수 있다. 만약 요청한 키에 해당하는 값이 없다면 값 없음을 의미하는 null을 반환한다.
       ```dart
       
