@@ -63,3 +63,30 @@ num get right => left + width; //오른쪽 점을 알기 위해 right는 left와
 set right(num value) => left = value - width; //오른쪽 점을 설정하기 위해 원하는 위치값 value를 매개인자로 받아 value에서 width를 뺀 값을 left에 할당한다.
 ```
 }
+13)상속은 **extends**키워드를 사용하여 부모 클래스의 기존 기능을 재정의할 때 사용한다.  
+14)추상클래스는 **abstract**키워드를 사용하고, 추상 클래스는 그대로 인스턴스화할 수 없으며, 다른 클래스에서 **임플리먼트**하여 기능을 완성하는 상속 재료로 사용되고, 대상 클래스에는 **implements**키워드를 사용하고, 메서드에는 **@override**키워드를 사용한다. 여러 추상 클래스를 한 번에 임플리먼트할 수도 있으나 추상 클래스를 구현할 때는 모든 추상 메서드를 꼭 재정의해야 한다.
+15)**믹스인**. **with**키워드를 사용하면 상속하지 않고 다른 클래스의 기능을 가져오거나 오버라이드할 수 있다. **다형성**이라고도 한다.
+```dart
+class Goblin implements Monster{
+@override
+void attack(){
+      print('고블린 어택');
+}
+}
+class DarkGoblin extends Goblin with Hero {
+      
+}//DarkGoblin 클래스는 Goblin이기도 하며, Hero이기도 하며, Monster이기도 한다. 
+```
+16)다트는 List, Map, Set등의 **컬렉션**을 제공한다.
+      16-1) List : 같은 타입의 자료를 여러 개 담을 수 있고 특정 인덱스로 접근이 가능하다. **스프레드 연산자 ...**을 사용해 다른 컬렉션 안에 컬렉션을 삽입할 때 사용한다.
+      ```dart
+      List<dynamic> list = [1,2,3,'hello']; //dynamic은 모든 타입을 대변하는 특수한 타입.
+      var items =['mon','tue','wed'];
+      
+      final items = [1,2,3,4];
+      final mynum = [...items,5,6];
+      print(mynum); //1,2,3,4,5,6
+      ```
+      16-2) Map : 순서가 없고 탐색이 빠른 자료구조 컬렉션이고, **키**와 **값**의 쌍으로 이루어져 있어 키를 이용하여 값을 빠르게 얻을 수 있다. 만약 요청한 키에 해당하는 값이 없다면 값 없음을 의미하는 null을 반환한다.
+      ```dart
+      
