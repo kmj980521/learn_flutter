@@ -95,3 +95,10 @@ class DarkGoblin extends Goblin with Hero {
       }
       cityNap['미국']='워싱턴'; //새로운 값 추가
 ```      
+      16-3) Set : 집합을 표현하는 자료구조 컬렉션이고, **add(), remove()**메서드로 집합에 추가하거나 삭제를 하고, **contains()**메서드는 찾고자 하는 자료가 집합에 있는지 없는지 **불리언 타입**으로 반환한다. 리스트와는 다르게 중복을 허용하지 않는다.
+```dart
+      var citySet = {'서울','수원','오산','부산'};
+      citySet.add('안양');
+      citySet.remove('수원');
+      print(citySet.contains('서울')); //true
+``` 
