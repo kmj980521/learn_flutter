@@ -25,4 +25,5 @@ samples, guidance on mobile development, and a full API reference.
 int a = 10;
       if (a is int){
         print('정수');
-    }``` **is** 키워드는 타입을 검사한다.
+    }``` 
+    **is** 키워드는 타입을 검사한다.
