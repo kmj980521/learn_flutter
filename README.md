@@ -22,6 +22,7 @@ samples, guidance on mobile development, and a full API reference.
 3)상수는 **fianl**키워드를 사용한다.  
 4)**assert()** 함수는 계산 결과가 참인지 검사한다.  
 5)```dart
+
 int a = 10;
 if(a is int){
 print('정수');
