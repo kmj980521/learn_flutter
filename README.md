@@ -36,4 +36,18 @@ int d = c as int; //에러 int와 double은 모두 num을 구현하는 타입이
 dynamic d =30.5;
 num n = d; //as num; 생략 가능. int와 double 모두 상위 개념인 num으로 형변환할 수 있다.
 ```
-
+7)**static**키워드는 클래스 내부에 선언된 함수더라도 정적 메서드가 되며 함수로 볼 수 있다. 최상위 함수처럼 사용할 수 있다.  
+8)**람다식 표현** 
+```dart
+(number)=>number%2 == 0; //number가 짝수인지 판별
+```
+9)**선택 매개변수**. 함수 정의에서 {}로 감싼 매개변수는 선택적으로 사용할 수 있다. 호출할 때 매개변수명을 값 앞에 써주면 되는데 이런 매개변수를 **이름 있는 매개변수**라고 한다.
+```dart
+void something(String name, {int age}){} //int age = 10과 같이 기본값을 지정할 수도 있다.
+void main(){
+something('홍길동',age:10); //ok
+something('홍길동'); //ok
+something(age:10); //error name은 필수로 들어가야함.
+something(); //error name은 필수로 들어가야함. 
+}
+```
