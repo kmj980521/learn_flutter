@@ -156,4 +156,19 @@ void main(){
   list.where((item)=>item%2==0).map((item)=>'숫자 $item').forEach(print); //짝수를 찾아 그 짝수에 숫자 문자열을 붙이고 print한다.
   
 }
-```
+```  
+20)**toList**는 결과를 리스트로 저장하고, 만약 중복되는 값을 제거한 리스트를 얻고 싶으면 **toSet**를 사용해 세트로 저장을 한다.
+```dart
+void main(){
+  final list = [1,2,2,3,3,4,5];
+  
+  final result_list=list.where((item)=>item%2==0).toList();
+  
+  final result_set=list.where((item)=>item%2==0).toSet();
+  print(result_list); //[2, 2, 4]
+  print(result_set); // (2, 4)
+}
+```  
+21)**any**함수는 리스트에 특정 조건을 충족하는 요소가 있는지 없는지 계산을 할 때 사용한다. 
+22)**계단식 표기법(..)** 을 사용
+
