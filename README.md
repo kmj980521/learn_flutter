@@ -102,4 +102,16 @@ class DarkGoblin extends Goblin with Hero {
       citySet.remove('수원');
       print(citySet.contains('서울')); //true
 ``` 
-17)dart는 **객체 지향 프로그래밍**과 **함수형 프로그래밍**의 특징을 모두 제공한다. 
+17)dart는 **객체 지향 프로그래밍**과 **함수형 프로그래밍**의 특징을 모두 제공한다.  
+```dart
+void something(Function(int i) f){
+  f(10);
+}
+
+void main() {
+ something((value){
+   print(value);
+ });
+}
+```
+
