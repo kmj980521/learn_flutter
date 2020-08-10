@@ -131,5 +131,19 @@ void main(){
   something(print); //10
 }
 ```
--> 첫줄 설명 : myPrint()를 호출하고, 그 myPrint() 함수가 something의 매개변수 f로 익명 함수로 작동하고, 그 함수에 10을 전달한다. 즉 myPrint() 함수에는 10이 전달되어 10을 출력한다.
-
+-> 첫줄 설명 : myPrint()를 호출하고, 그 myPrint() 함수가 something의 매개변수 f로 익명 함수로 작동하고, 그 함수에 10을 전달한다. 즉 myPrint() 함수에는 10이 전달되어 10을 출력한다.  
+18) for문은 **외부반복** forEach문은 **내부반복**을 수행한다. 
+```dart
+void main(){
+  final list = [1,2,3,4,5];
+  
+  for(var i =0; i<list.length;i++)
+  {
+    print(list[i]);
+  }
+  list.forEach(print);
+  
+  list.forEach((item)=>print(item)); //람다식표현
+}
+```  
+19)
