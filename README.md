@@ -77,8 +77,8 @@ class DarkGoblin extends Goblin with Hero {
       
 }//DarkGoblin 클래스는 Goblin이기도 하며, Hero이기도 하며, Monster이기도 한다. 
 ```
-16)다트는 List, Map, Set등의 **컬렉션**을 제공한다.
-  16-1) List : 같은 타입의 자료를 여러 개 담을 수 있고 특정 인덱스로 접근이 가능하다. **스프레드 연산자 ...**을 사용해 다른 컬렉션 안에 컬렉션을 삽입할 때 사용한다.
+16)다트는 List, Map, Set등의 **컬렉션**을 제공한다.  
+  16-1) List : 같은 타입의 자료를 여러 개 담을 수 있고 특정 인덱스로 접근이 가능하다. **스프레드 연산자 (...)**을 사용해 다른 컬렉션 안에 컬렉션을 삽입할 때 사용한다.
 ```dart
       List<dynamic> list = [1,2,3,'hello']; //dynamic은 모든 타입을 대변하는 특수한 타입.
       var items =['mon','tue','wed'];
