@@ -141,9 +141,19 @@ void main(){
   {
     print(list[i]);
   }
-  list.forEach(print);
+  list.forEach(print); //int 타입의 인수를 받아 print()를 실행
   
   list.forEach((item)=>print(item)); //람다식표현
 }
 ```  
-19)
+19)**where** 키워드는 조건을 필터링할 때 사용하는 함수이며, **map**함수는 반복되는 값을 다른 형태로 변환하는 방법을 제공하는 함수이다. .연산자를 찍고 연속적으로 사용하는    **메서드 체인**을 지원한다.
+```dart
+void main(){
+  final list = [1,2,3,4,5];
+  
+  list.where((item)=>item%2==0).forEach(print); //item이 짝수면 print를 한다.
+  
+  list.where((item)=>item%2==0).map((item)=>'숫자 $item').forEach(print); //짝수를 찾아 그 짝수에 숫자 문자열을 붙이고 print한다.
+  
+}
+```
