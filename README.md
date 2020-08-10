@@ -113,5 +113,23 @@ void main() {
    print(value);
  });
 }
+```  
+something() 함수는 인수로 Function이라는 특수한 클래스의 인스턴스를 받는다. **Function**키워드는 다트에서 함수를 매개변수로 전달하고자 할 때 사용하는 타입. something() 함수는 내부에서 10이 매개변수로 전달된 f() 함수를 돌려준다. f() 함수는 익명 함수이다.  함수를 매개변수로 전달하기, 수정하기, 변수에 대입하기가 가능한 객체를 **일급 객체**라고 한다.  
+```dart
+void something(Function(int i )f){
+  f(10);
+}
+
+void myPrint(int i){
+  print('내가 만든 함수에서 출력한 $i');
+}
+
+void main(){
+  something(myPrint); //내가 만든 함수에서 출력한 10
+  something((i)=>myPrint(i)); //내가 만든 함수에서 출력한 10
+  something((i)=>print(i)); //10
+  something(print); //10
+}
 ```
+-> 첫줄 설명 : myPrint()를 호출하고, 그 myPrint() 함수가 something의 매개변수 f로 익명 함수로 작동하고, 그 함수에 10을 전달한다. 즉 myPrint() 함수에는 10이 전달되어 10을 출력한다.
 
