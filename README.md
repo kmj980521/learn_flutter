@@ -198,4 +198,7 @@ MYHomePage({Key key, this.title}) : super(key: key);
 title: Text(widget.title), //widget 프로퍼티 사용
 ```  
 5)**Scaffold**클래스는 머티리얼 디자인 앱을 만들 때 뼈대가 되는 위젯이다. 즉, 머티리얼 디자인 앱을 만든다면 MaterialApp -> Scaffold가 기본 형태이다.  
-6)Scaffold 클래스의 Flo
+6)Scaffold 클래스의 FloatingActionButton은 setState를 통해 상태를 변경해주고 리빌드한다.  
+
+# 기본 위젯  
+1)화면을 구성하는 컴포넌트를 **위젯**이라고 부른다. 
