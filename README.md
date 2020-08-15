@@ -201,4 +201,5 @@ title: Text(widget.title), //widget 프로퍼티 사용
 6)Scaffold 클래스의 FloatingActionButton은 setState를 통해 상태를 변경해주고 리빌드한다.  
 
 # 기본 위젯  
-1)화면을 구성하는 컴포넌트를 **위젯**이라고 부른다. 
+1)화면을 구성하는 컴포넌트를 **위젯**이라고 부른다.  
+2)**Container**는 아무것도 없는 위젯이고 다양한 프로퍼티를 가지고 있기 때문에 여러가지로 사용이 된다.
