@@ -15,7 +15,6 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-
 # 다트 문법
 1int와 double은 **num**타입에 포함된다.  
 2)**var**를 사용해 타입을 직접 명시하지 않고 타입 추론을 한다.  
