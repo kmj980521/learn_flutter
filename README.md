@@ -198,4 +198,14 @@ MYHomePage({Key key, this.title}) : super(key: key);
 title: Text(widget.title), //widget 프로퍼티 사용
 ```  
 5)**Scaffold**클래스는 머티리얼 디자인 앱을 만들 때 뼈대가 되는 위젯이다. 즉, 머티리얼 디자인 앱을 만든다면 MaterialApp -> Scaffold가 기본 형태이다.  
-6)Scaffold 클래스의 Flo
+6)Scaffold 클래스의 FloatingActionButton은 setState를 통해 상태를 변경해주고 리빌드한다.  
+
+# 기본 위젯 / widgets.dart파일 참조
+1)화면을 구성하는 컴포넌트를 **위젯**이라고 부른다.  
+2)**Container**는 아무것도 없는 위젯이고 다양한 프로퍼티를 가지고 있기 때문에 여러가지로 사용이 된다.  
+3)**Column**위젯과 **Row**위젯의 mainAxis와 crossAxis는 서로 다르다. Column은 세로가 mainAxis고, Row는 가로가 mainAxis이다. MainAxisSize를 통해 공간을 설정할 수 있고, MainAxisAlignment와 CrossAxisAlignment에 center, start, end, spaceEvenly, spaceBetween, spaceAround등을 통해 여백을 조절할 수 있다.  
+4)**Stack**위젯은 children에 나열한 여러 위젯을 순서대로 겹치게 한다. children 프로퍼티에 정의한 리스트에 먼저 작성한 위젯이 가장 아래쪽에 위치하고, 나중에 작성한 위젯이 위쪽에 위치하게 된다.  
+# 기본 위젯2 / widgets2.dart 파일 참조
+1)**SingleChildScrollView**를 사용하여 Column에 나열된 위젯들이 화면 크기를 넘어서면 스크롤을 하게끔 한다. SingleChildScrollView는 하나의 자식 위젯을 가져야 하기 때문에 Column을 사용하여 스크롤을 구현할 수 있지만, Column은 표시할 위젯의 크기만큼 가로 길이를 가진다. 이때 **ListBody**를 사용하면 스크롤 가능 영역이 가로로 꽉 차기 때문에 사용자가 스크롤하기 더 편해진다.  
+2)**ListView**위젯은 SingleChildScrollView와 ListBody의 조합과 동일한 효과를 내지만 좀 더 리스트 표현에 최적화된 위젯이다. ListView에 표시할 각 항목의 레이아웃은 직접 정의해도 되지만 리스트 아이템을 쉽게 작성할 수 있는 **ListTile**위젯을 사용하면 편리하다.
+
