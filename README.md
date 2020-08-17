@@ -206,5 +206,49 @@ title: Text(widget.title), //widget 프로퍼티 사용
 4)**Stack**위젯은 children에 나열한 여러 위젯을 순서대로 겹치게 한다. children 프로퍼티에 정의한 리스트에 먼저 작성한 위젯이 가장 아래쪽에 위치하고, 나중에 작성한 위젯이 위쪽에 위치하게 된다.  
 # 기본 위젯2 / widgets2.dart 파일 참조
 1)**SingleChildScrollView**를 사용하여 Column에 나열된 위젯들이 화면 크기를 넘어서면 스크롤을 하게끔 한다. SingleChildScrollView는 하나의 자식 위젯을 가져야 하기 때문에 Column을 사용하여 스크롤을 구현할 수 있지만, Column은 표시할 위젯의 크기만큼 가로 길이를 가진다. 이때 **ListBody**를 사용하면 스크롤 가능 영역이 가로로 꽉 차기 때문에 사용자가 스크롤하기 더 편해진다.  
-2)**ListView**위젯은 SingleChildScrollView와 ListBody의 조합과 동일한 효과를 내지만 좀 더 리스트 표현에 최적화된 위젯이다. ListView에 표시할 각 항목의 레이아웃은 직접 정의해도 되지만 리스트 아이템을 쉽게 작성할 수 있는 **ListTile**위젯을 사용하면 편리하다.
-
+2)**ListView**위젯은 SingleChildScrollView와 ListBody의 조합과 동일한 효과를 내지만 좀 더 리스트 표현에 최적화된 위젯이다. ListView에 표시할 각 항목의 레이아웃은 직접 정의해도 되지만 리스트 아이템을 쉽게 작성할 수 있는 **ListTile**위젯을 사용하면 편리하다.  
+3)**GridView** 위젯을 사용하여 열 수를 지정하여 그리드뷰를 생성한다.
+```dart
+GridView.count(
+  crossAxisCount: [열 수],
+  children: <Widget> [
+     [위젯],
+     [위젯],
+     [위젯],
+  ]
+)
+```
+4)**PageVeiw**위젯을 사용하여 여러 페이지를 좌우로 슬라이드하여 넘길 수 있도록 해준다. 
+5)**DefaultTabController**로 Scaffold를 감싸고 Scaffold의 bottom에 TabBar를 통해 Tab의 리스트를 지정한다.  
+6)Scaffold의 bottomNavigationBar의 **BottomNavigationBar**를 사용해 하단 탭 바를 구성한다.  
+7)**Center**위젯을 사용해 중앙으로 정렬시킨다.  
+8)**Padding**위젯을 사용해 안쪽 여백을 표현한다. EdgeInsets 클래스를 사용하여 설정하고, 앞에 const를 붙이면 컴파일 타임에 상수로 정의되어 다시 사용되는 부분이 있을 경우에 메모리에 있는 값을 재사용하는 이득이 있다.  
+9)**Align**위젯을 사용하여 자식 위젯의 정렬 방향을 정할 수 있다. 
+```dart
+Align(
+  alignment: Alignment.bottomRight,
+  child: [위젯]
+)
+```
+10)**Expanded**위젯을 사용하여 자식 위젯의 크기를 최대한으로 확징시켜준다. 
+11)위젯을 특정 크기로 만들고 싶을 때는 **SizedBox**위젯을 사용한다. 
+12)**Card**위젯을 사용하여 카드 형태의 모양을 만든다. 기본적으로 크기가 0이므로 자식 위젯의 크기에따라 크기가 결정된다. shape프로퍼티를 통해 RoundedRectangleBorder 클래스의 인스턴스를 지정해 카드 모서리의 둥근 정도를 실숫값으로 조정한다.  
+13)**RaisedButton**은 입체감을 가지는 일반적인 버튼 위젯이다. **FlatButton**은 평평한 형태의 버튼이다. **IconButton**은 아이콘을 표시하는 버튼이다. IconButton은 아이콘의 크기나 색을 지정할 수 있다. 또한, IconButton 위젯은 child 프로퍼티가 없는 대신 아이콘을 icon 프로퍼티에 작성하고 크기는 iconSize 프로퍼티로 설정한다.  
+14)**MediaQuery**를 사용하기 위해서는 Builder를 활용한다.
+```dart
+Widget _buildMiddle(){
+  return Builder(
+   builder: (BuildContext context){
+     return SizedBox(
+       width: MediaQuery.of(context).size.width,
+       height:MediaQuery.of(context).size.height,
+     );
+   }
+  )
+}
+```
+15)**Text** 위젯을 사용하여 글자를 표시한다. Textㅇ 위젯은 기본적으로 첫 번째 인수에 문자열을 지정하고, **style 프로퍼티에 TextStyle 클래스의 인스턴스를 지정**하여 다양한 글자를 표현한다.  
+16)**Image**위젯을 사용하여 이미지를 표시한다. **Image.network('url')** 를 사용해도 되고, pubspec.yaml 파일에서 assets를 수정해도 된다.  
+17)**Icon**위젯을 사용하여 여러가지 아이콘을 표시한다. 아이콘 위젯은 단독으로도 사용하지만 메뉴나 리스트, 버튼과의 조합으로 사용된다. 머터리얼 디자인용 기본 아이콘들은 **Icons** 클래스에 상수로 정의되어 있다.  
+18)**Progress** 위젯을 사용하여 로딩 중이거나 오래 걸리는 작업을 할 때 사용자에게 진행 중임을 보여주는 용도로 사용한다. 둥근 형태의 **CircularProgressIndicator()** 와 선 형태의 **LinearProgressIndicator()** 를 사용한다.  
+19)**CircleAvatar** 위젯을 사용하여 프로필 화면에 자주 사용하는 원형 위젯이다. 네트워크상에 존재하는 이미지를 표시한다면 child 프로퍼티가 아닌 backgroundImage 프로퍼티에 NetworkImage 클래스의 인스턴스를 지정해야 네트워크에서 받아온 이미지가 원형으로 표시된다.
