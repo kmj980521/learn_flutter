@@ -206,5 +206,15 @@ title: Text(widget.title), //widget 프로퍼티 사용
 4)**Stack**위젯은 children에 나열한 여러 위젯을 순서대로 겹치게 한다. children 프로퍼티에 정의한 리스트에 먼저 작성한 위젯이 가장 아래쪽에 위치하고, 나중에 작성한 위젯이 위쪽에 위치하게 된다.  
 # 기본 위젯2 / widgets2.dart 파일 참조
 1)**SingleChildScrollView**를 사용하여 Column에 나열된 위젯들이 화면 크기를 넘어서면 스크롤을 하게끔 한다. SingleChildScrollView는 하나의 자식 위젯을 가져야 하기 때문에 Column을 사용하여 스크롤을 구현할 수 있지만, Column은 표시할 위젯의 크기만큼 가로 길이를 가진다. 이때 **ListBody**를 사용하면 스크롤 가능 영역이 가로로 꽉 차기 때문에 사용자가 스크롤하기 더 편해진다.  
-2)**ListView**위젯은 SingleChildScrollView와 ListBody의 조합과 동일한 효과를 내지만 좀 더 리스트 표현에 최적화된 위젯이다. ListView에 표시할 각 항목의 레이아웃은 직접 정의해도 되지만 리스트 아이템을 쉽게 작성할 수 있는 **ListTile**위젯을 사용하면 편리하다.
-
+2)**ListView**위젯은 SingleChildScrollView와 ListBody의 조합과 동일한 효과를 내지만 좀 더 리스트 표현에 최적화된 위젯이다. ListView에 표시할 각 항목의 레이아웃은 직접 정의해도 되지만 리스트 아이템을 쉽게 작성할 수 있는 **ListTile**위젯을 사용하면 편리하다.  
+3)**GridView** 위젯을 사용하여 열 수를 지정하여 그리드뷰를 생성한다.
+```dart
+GridView.count(
+  crossAxisCount: [열 수],
+  children: <Widget> [
+     [위젯],
+     [위젯],
+     [위젯],
+  ]
+)
+```
