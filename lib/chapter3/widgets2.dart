@@ -7,9 +7,55 @@ class Widgets2 extends StatelessWidget {
         title:'Flutter Demo',
         theme:ThemeData(primarySwatch: Colors.blue),
         home:Scaffold(
-            body:make_listview(),
+            body:make_PageView(),
         )
     );
+  }
+
+  PageView make_PageView() {
+    return PageView(
+      children: <Widget>[
+        Container(
+          color:Colors.red
+        ),
+        Container(
+          color:Colors.blue
+        ),
+        Container(
+          color:Colors.yellow
+        ),
+      ],
+    );
+  }
+
+
+  GridView make_GridView() {
+    return GridView.count(
+              crossAxisCount: 2,
+            children: <Widget>[
+              Container(
+                color: Colors.red,
+                width: 100,
+                height:100,
+                padding: const EdgeInsets.all(8.0),
+                margin : const EdgeInsets.all(8.0)
+              ),
+              Container(
+                color: Colors.blue,
+                width: 100,
+                height:100,
+                padding: const EdgeInsets.all(8.0),
+                margin : const EdgeInsets.all(8.0)
+              ),
+              Container(
+                color: Colors.purple,
+                width: 100,
+                height:100,
+                padding: const EdgeInsets.all(8.0),
+                margin : const EdgeInsets.all(8.0)
+              ),
+            ],
+          );
   }
 }
 
@@ -48,3 +94,4 @@ ListView make_listview(){
     ],
   );
 }
+
