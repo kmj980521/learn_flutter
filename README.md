@@ -218,3 +218,32 @@ GridView.count(
   ]
 )
 ```
+4)**PageVeiw**위젯을 사용하여 여러 페이지를 좌우로 슬라이드하여 넘길 수 있도록 해준다. 
+5)**DefaultTabController**로 Scaffold를 감싸고 Scaffold의 bottom에 TabBar를 통해 Tab의 리스트를 지정한다.  
+6)Scaffold의 bottomNavigationBar의 **BottomNavigationBar**를 사용해 하단 탭 바를 구성한다.  
+7)**Center**위젯을 사용해 중앙으로 정렬시킨다.  
+8)**Padding**위젯을 사용해 안쪽 여백을 표현한다. EdgeInsets 클래스를 사용하여 설정하고, 앞에 const를 붙이면 컴파일 타임에 상수로 정의되어 다시 사용되는 부분이 있을 경우에 메모리에 있는 값을 재사용하는 이득이 있다.  
+9)**Align**위젯을 사용하여 자식 위젯의 정렬 방향을 정할 수 있다. 
+```dart
+Align(
+  alignment: Alignment.bottomRight,
+  child: [위젯]
+)
+```
+10)**Expanded**위젯을 사용하여 자식 위젯의 크기를 최대한으로 확징시켜준다. 
+11)위젯을 특정 크기로 만들고 싶을 때는 **SizedBox**위젯을 사용한다. 
+12)**Card**위젯을 사용하여 카드 형태의 모양을 만든다. 기본적으로 크기가 0이므로 자식 위젯의 크기에따라 크기가 결정된다. shape프로퍼티를 통해 RoundedRectangleBorder 클래스의 인스턴스를 지정해 카드 모서리의 둥근 정도를 실숫값으로 조정한다.  
+13)**RaisedButton**은 입체감을 가지는 일반적인 버튼 위젯이다. **FlatButton**은 평평한 형태의 버튼이다. **IconButton**은 아이콘을 표시하는 버튼이다. IconButton은 아이콘의 크기나 색을 지정할 수 있다. 또한, IconButton 위젯은 child 프로퍼티가 없는 대신 아이콘을 icon 프로퍼티에 작성하고 크기는 iconSize 프로퍼티로 설정한다.  
+14)**MediaQuery**를 사용하기 위해서는 Builder를 활용한다.
+```dart
+Widget _buildMiddle(){
+  return Builder(
+   builder: (BuildContext context){
+     return SizedBox(
+       width: MediaQuery.of(context).size.width,
+       height:MediaQuery.of(context).size.height,
+     );
+   }
+  )
+}
+```
