@@ -43,6 +43,7 @@ Column make_Column(int idx1,int idx2, int idx3){
   );
 }
 
+// ignore: non_constant_identifier_names
 Row make_Row(int idx1,int idx2, int idx3){
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
