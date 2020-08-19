@@ -259,4 +259,9 @@ Widget _buildMiddle(){
 2)**CheckBox**와 **Swtich** 위젯을 통해 설정 화면 등에 많이 사용되는 체크박스, 라디오 버튼, 스위치를 표현한다. 이 둘은 상태를 나타낼 **불리언 타입의 변수가 필요**하고 **value 프로퍼티에 설정**한다. **onChanged** 이벤트는 체크값이 변할 때마다 발생하므로 StatefulWidget이어야 하며, **setsState()**를 통해 value 프로퍼티에 지정한 변숫값을 변경하여 UI를 다시 그린다.  
 3)**Radio**와 **RadioListTile**위젯을 통해 선택 그룹 중 하나를 선택할 때 사용한다. 어디까지를 터치 영역으로 볼 것이냐에 따라 Radio를 사용하거나 RadioListTile을 사용한다. Radio 그룹 내에서 하나만 선택을 하기 때문에 그룹이 되는 항목을 열거형(enum)으로 정의하고 **groupValue 프로퍼티**에 열거형으로 정의한 변수를 지정하고, onChanged 이벤트에서 변경된 값을 반영한다. RadioListTile은 가로 전체가 터치 영역이 된다.  
 4)**DropDownButton** 위젯은 여러 아이템 중 하나를 고를 수 있는 콤보박스 형태의 위젯이다. value 프로퍼티에 표시할 값을 지정하고, items 프로퍼티에는 표시할 항목을 DropdownMenuItem 클래스의 인스턴스들을 담은 **리스트로 지정**해야 한다.  
-5)**AlertDialog**위젯은 머티리얼 디자인의 유저 확인용 다이얼로그 위젯이다. AlertDialog를 표시하려면 showdialog() 함수의 builder 프로퍼티에 AlertDialog 클래스의 인스턴스를 반환하는 함수를 작성하면 된다. showDialog() 함수의 barrierDismissible 프로퍼티는 다이얼로그 바깥 부분을 터치해도 닫히게 할 것인지 정한다. title은 제목, content는 내용, actions프로퍼티는 Navigator를 설정한다. 
+5)**AlertDialog**위젯은 머티리얼 디자인의 유저 확인용 다이얼로그 위젯이다. AlertDialog를 표시하려면 showdialog() 함수의 builder 프로퍼티에 AlertDialog 클래스의 인스턴스를 반환하는 함수를 작성하면 된다. showDialog() 함수의 barrierDismissible 프로퍼티는 다이얼로그 바깥 부분을 터치해도 닫히게 할 것인지 정한다. title은 제목, content는 내용, actions프로퍼티는 Navigator를 설정한다.  
+6)**DatePicker** 위젯을 통해 날짜를 선택한다. showDatePicker() 함수를 호출해야하며, 함수의 프로퍼티에는 context를 인수로 전달하고, initialDate는 초기 선택값, firstDate와 lastDate는 DatePicker에 표시할 날짜의 범위를 정하고, builder 프로퍼티는 테마를 설정할 때 사용한다.  
+7)**TimePicker** 위젯을 사용하여 시간을 선택한다. initialTime 프로퍼티에는 초기값을 지정하고, context가 필요하며, Future 타입으로 TimeOfDay 타입의 값을 반환한다.  
+
+# 기본 위젯5 / widgets5.dart 파일 참조  
+1)
