@@ -219,22 +219,23 @@ GridView.count(
 )
 ```
 4)**PageVeiw**위젯을 사용하여 여러 페이지를 좌우로 슬라이드하여 넘길 수 있도록 해준다. 
-5)**DefaultTabController**로 Scaffold를 감싸고 Scaffold의 bottom에 TabBar를 통해 Tab의 리스트를 지정한다.  
-6)Scaffold의 bottomNavigationBar의 **BottomNavigationBar**를 사용해 하단 탭 바를 구성한다.  
-7)**Center**위젯을 사용해 중앙으로 정렬시킨다.  
-8)**Padding**위젯을 사용해 안쪽 여백을 표현한다. EdgeInsets 클래스를 사용하여 설정하고, 앞에 const를 붙이면 컴파일 타임에 상수로 정의되어 다시 사용되는 부분이 있을 경우에 메모리에 있는 값을 재사용하는 이득이 있다.  
-9)**Align**위젯을 사용하여 자식 위젯의 정렬 방향을 정할 수 있다. 
+# 기본 위젯3 / widgets3.dart 파일 참조
+1)**DefaultTabController**로 Scaffold를 감싸고 Scaffold의 bottom에 TabBar를 통해 Tab의 리스트를 지정한다.  
+2)Scaffold의 bottomNavigationBar의 **BottomNavigationBar**를 사용해 하단 탭 바를 구성한다.  
+3)**Center**위젯을 사용해 중앙으로 정렬시킨다.  
+4)**Padding**위젯을 사용해 안쪽 여백을 표현한다. EdgeInsets 클래스를 사용하여 설정하고, 앞에 const를 붙이면 컴파일 타임에 상수로 정의되어 다시 사용되는 부분이 있을 경우에 메모리에 있는 값을 재사용하는 이득이 있다.  
+5)**Align**위젯을 사용하여 자식 위젯의 정렬 방향을 정할 수 있다. 
 ```dart
 Align(
   alignment: Alignment.bottomRight,
   child: [위젯]
 )
 ```
-10)**Expanded**위젯을 사용하여 자식 위젯의 크기를 최대한으로 확징시켜준다. 
-11)위젯을 특정 크기로 만들고 싶을 때는 **SizedBox**위젯을 사용한다. 
-12)**Card**위젯을 사용하여 카드 형태의 모양을 만든다. 기본적으로 크기가 0이므로 자식 위젯의 크기에따라 크기가 결정된다. shape프로퍼티를 통해 RoundedRectangleBorder 클래스의 인스턴스를 지정해 카드 모서리의 둥근 정도를 실숫값으로 조정한다.  
-13)**RaisedButton**은 입체감을 가지는 일반적인 버튼 위젯이다. **FlatButton**은 평평한 형태의 버튼이다. **IconButton**은 아이콘을 표시하는 버튼이다. IconButton은 아이콘의 크기나 색을 지정할 수 있다. 또한, IconButton 위젯은 child 프로퍼티가 없는 대신 아이콘을 icon 프로퍼티에 작성하고 크기는 iconSize 프로퍼티로 설정한다.  
-14)**MediaQuery**를 사용하기 위해서는 Builder를 활용한다.
+6)**Expanded**위젯을 사용하여 자식 위젯의 크기를 최대한으로 확징시켜준다. 
+7)위젯을 특정 크기로 만들고 싶을 때는 **SizedBox**위젯을 사용한다. 
+8)**Card**위젯을 사용하여 카드 형태의 모양을 만든다. 기본적으로 크기가 0이므로 자식 위젯의 크기에따라 크기가 결정된다. shape프로퍼티를 통해 RoundedRectangleBorder 클래스의 인스턴스를 지정해 카드 모서리의 둥근 정도를 실숫값으로 조정한다.  
+9)**RaisedButton**은 입체감을 가지는 일반적인 버튼 위젯이다. **FlatButton**은 평평한 형태의 버튼이다. **IconButton**은 아이콘을 표시하는 버튼이다. IconButton은 아이콘의 크기나 색을 지정할 수 있다. 또한, IconButton 위젯은 child 프로퍼티가 없는 대신 아이콘을 icon 프로퍼티에 작성하고 크기는 iconSize 프로퍼티로 설정한다.  
+10)**MediaQuery**를 사용하기 위해서는 Builder를 활용한다.
 ```dart
 Widget _buildMiddle(){
   return Builder(
@@ -247,8 +248,20 @@ Widget _buildMiddle(){
   )
 }
 ```
-15)**Text** 위젯을 사용하여 글자를 표시한다. Textㅇ 위젯은 기본적으로 첫 번째 인수에 문자열을 지정하고, **style 프로퍼티에 TextStyle 클래스의 인스턴스를 지정**하여 다양한 글자를 표현한다.  
-16)**Image**위젯을 사용하여 이미지를 표시한다. **Image.network('url')** 를 사용해도 되고, pubspec.yaml 파일에서 assets를 수정해도 된다.  
-17)**Icon**위젯을 사용하여 여러가지 아이콘을 표시한다. 아이콘 위젯은 단독으로도 사용하지만 메뉴나 리스트, 버튼과의 조합으로 사용된다. 머터리얼 디자인용 기본 아이콘들은 **Icons** 클래스에 상수로 정의되어 있다.  
-18)**Progress** 위젯을 사용하여 로딩 중이거나 오래 걸리는 작업을 할 때 사용자에게 진행 중임을 보여주는 용도로 사용한다. 둥근 형태의 **CircularProgressIndicator()** 와 선 형태의 **LinearProgressIndicator()** 를 사용한다.  
-19)**CircleAvatar** 위젯을 사용하여 프로필 화면에 자주 사용하는 원형 위젯이다. 네트워크상에 존재하는 이미지를 표시한다면 child 프로퍼티가 아닌 backgroundImage 프로퍼티에 NetworkImage 클래스의 인스턴스를 지정해야 네트워크에서 받아온 이미지가 원형으로 표시된다.
+11)**Text** 위젯을 사용하여 글자를 표시한다. Textㅇ 위젯은 기본적으로 첫 번째 인수에 문자열을 지정하고, **style 프로퍼티에 TextStyle 클래스의 인스턴스를 지정**하여 다양한 글자를 표현한다.  
+12)**Image**위젯을 사용하여 이미지를 표시한다. **Image.network('url')** 를 사용해도 되고, pubspec.yaml 파일에서 assets를 수정해도 된다.  
+13)**Icon**위젯을 사용하여 여러가지 아이콘을 표시한다. 아이콘 위젯은 단독으로도 사용하지만 메뉴나 리스트, 버튼과의 조합으로 사용된다. 머터리얼 디자인용 기본 아이콘들은 **Icons** 클래스에 상수로 정의되어 있다.  
+14)**Progress** 위젯을 사용하여 로딩 중이거나 오래 걸리는 작업을 할 때 사용자에게 진행 중임을 보여주는 용도로 사용한다. 둥근 형태의 **CircularProgressIndicator()** 와 선 형태의 **LinearProgressIndicator()** 를 사용한다.  
+15)**CircleAvatar** 위젯을 사용하여 프로필 화면에 자주 사용하는 원형 위젯이다. 네트워크상에 존재하는 이미지를 표시한다면 child 프로퍼티가 아닌 backgroundImage 프로퍼티에 NetworkImage 클래스의 인스턴스를 지정해야 네트워크에서 받아온 이미지가 원형으로 표시된다.  
+
+# 기본 위젯4 / widgets4.dart 파일 참조  
+1)**TextField()** 위젯을 통해 글자를 입력받고, InpuDecoration 클래스와 함께 사용하여 힌트 메시지나 외곽선등의 꾸밈 효과를 추가한다.  
+2)**CheckBox**와 **Swtich** 위젯을 통해 설정 화면 등에 많이 사용되는 체크박스, 라디오 버튼, 스위치를 표현한다. 이 둘은 상태를 나타낼 **불리언 타입의 변수가 필요**하고 **value 프로퍼티에 설정**한다. **onChanged** 이벤트는 체크값이 변할 때마다 발생하므로 StatefulWidget이어야 하며, **setsState()**를 통해 value 프로퍼티에 지정한 변숫값을 변경하여 UI를 다시 그린다.  
+3)**Radio**와 **RadioListTile**위젯을 통해 선택 그룹 중 하나를 선택할 때 사용한다. 어디까지를 터치 영역으로 볼 것이냐에 따라 Radio를 사용하거나 RadioListTile을 사용한다. Radio 그룹 내에서 하나만 선택을 하기 때문에 그룹이 되는 항목을 열거형(enum)으로 정의하고 **groupValue 프로퍼티**에 열거형으로 정의한 변수를 지정하고, onChanged 이벤트에서 변경된 값을 반영한다. RadioListTile은 가로 전체가 터치 영역이 된다.  
+4)**DropDownButton** 위젯은 여러 아이템 중 하나를 고를 수 있는 콤보박스 형태의 위젯이다. value 프로퍼티에 표시할 값을 지정하고, items 프로퍼티에는 표시할 항목을 DropdownMenuItem 클래스의 인스턴스들을 담은 **리스트로 지정**해야 한다.  
+5)**AlertDialog**위젯은 머티리얼 디자인의 유저 확인용 다이얼로그 위젯이다. AlertDialog를 표시하려면 showdialog() 함수의 builder 프로퍼티에 AlertDialog 클래스의 인스턴스를 반환하는 함수를 작성하면 된다. showDialog() 함수의 barrierDismissible 프로퍼티는 다이얼로그 바깥 부분을 터치해도 닫히게 할 것인지 정한다. title은 제목, content는 내용, actions프로퍼티는 Navigator를 설정한다.  
+6)**DatePicker** 위젯을 통해 날짜를 선택한다. showDatePicker() 함수를 호출해야하며, 함수의 프로퍼티에는 context를 인수로 전달하고, initialDate는 초기 선택값, firstDate와 lastDate는 DatePicker에 표시할 날짜의 범위를 정하고, builder 프로퍼티는 테마를 설정할 때 사용한다.  
+7)**TimePicker** 위젯을 사용하여 시간을 선택한다. initialTime 프로퍼티에는 초기값을 지정하고, context가 필요하며, Future 타입으로 TimeOfDay 타입의 값을 반환한다.  
+
+# 기본 위젯5 / widgets5.dart 파일 참조  
+1)
