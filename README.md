@@ -252,4 +252,11 @@ Widget _buildMiddle(){
 12)**Image**위젯을 사용하여 이미지를 표시한다. **Image.network('url')** 를 사용해도 되고, pubspec.yaml 파일에서 assets를 수정해도 된다.  
 13)**Icon**위젯을 사용하여 여러가지 아이콘을 표시한다. 아이콘 위젯은 단독으로도 사용하지만 메뉴나 리스트, 버튼과의 조합으로 사용된다. 머터리얼 디자인용 기본 아이콘들은 **Icons** 클래스에 상수로 정의되어 있다.  
 14)**Progress** 위젯을 사용하여 로딩 중이거나 오래 걸리는 작업을 할 때 사용자에게 진행 중임을 보여주는 용도로 사용한다. 둥근 형태의 **CircularProgressIndicator()** 와 선 형태의 **LinearProgressIndicator()** 를 사용한다.  
-15)**CircleAvatar** 위젯을 사용하여 프로필 화면에 자주 사용하는 원형 위젯이다. 네트워크상에 존재하는 이미지를 표시한다면 child 프로퍼티가 아닌 backgroundImage 프로퍼티에 NetworkImage 클래스의 인스턴스를 지정해야 네트워크에서 받아온 이미지가 원형으로 표시된다.
+15)**CircleAvatar** 위젯을 사용하여 프로필 화면에 자주 사용하는 원형 위젯이다. 네트워크상에 존재하는 이미지를 표시한다면 child 프로퍼티가 아닌 backgroundImage 프로퍼티에 NetworkImage 클래스의 인스턴스를 지정해야 네트워크에서 받아온 이미지가 원형으로 표시된다.  
+
+# 기본 위젯4 / widgets4.dart 파일 참조  
+1)**TextField()** 위젯을 통해 글자를 입력받고, InpuDecoration 클래스와 함께 사용하여 힌트 메시지나 외곽선등의 꾸밈 효과를 추가한다.  
+2)**CheckBox**와 **Swtich** 위젯을 통해 설정 화면 등에 많이 사용되는 체크박스, 라디오 버튼, 스위치를 표현한다. 이 둘은 상태를 나타낼 **불리언 타입의 변수가 필요**하고 **value 프로퍼티에 설정**한다. **onChanged** 이벤트는 체크값이 변할 때마다 발생하므로 StatefulWidget이어야 하며, **setsState()**를 통해 value 프로퍼티에 지정한 변숫값을 변경하여 UI를 다시 그린다.  
+3)**Radio**와 **RadioListTile**위젯을 통해 선택 그룹 중 하나를 선택할 때 사용한다. 어디까지를 터치 영역으로 볼 것이냐에 따라 Radio를 사용하거나 RadioListTile을 사용한다. Radio 그룹 내에서 하나만 선택을 하기 때문에 그룹이 되는 항목을 열거형(enum)으로 정의하고 **groupValue 프로퍼티**에 열거형으로 정의한 변수를 지정하고, onChanged 이벤트에서 변경된 값을 반영한다. RadioListTile은 가로 전체가 터치 영역이 된다.  
+4)**DropDownButton** 위젯은 여러 아이템 중 하나를 고를 수 있는 콤보박스 형태의 위젯이다. value 프로퍼티에 표시할 값을 지정하고, items 프로퍼티에는 표시할 항목을 DropdownMenuItem 클래스의 인스턴스들을 담은 **리스트로 지정**해야 한다.  
+5)**AlertDialog**위젯은 머티리얼 디자인의 유저 확인용 다이얼로그 위젯이다. AlertDialog를 표시하려면 showdialog() 함수의 builder 프로퍼티에 AlertDialog 클래스의 인스턴스를 반환하는 함수를 작성하면 된다. showDialog() 함수의 barrierDismissible 프로퍼티는 다이얼로그 바깥 부분을 터치해도 닫히게 할 것인지 정한다. 
