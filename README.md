@@ -254,7 +254,7 @@ Widget _buildMiddle(){
 14)**Progress** 위젯을 사용하여 로딩 중이거나 오래 걸리는 작업을 할 때 사용자에게 진행 중임을 보여주는 용도로 사용한다. 둥근 형태의 **CircularProgressIndicator()** 와 선 형태의 **LinearProgressIndicator()** 를 사용한다.  
 15)**CircleAvatar** 위젯을 사용하여 프로필 화면에 자주 사용하는 원형 위젯이다. 네트워크상에 존재하는 이미지를 표시한다면 child 프로퍼티가 아닌 backgroundImage 프로퍼티에 NetworkImage 클래스의 인스턴스를 지정해야 네트워크에서 받아온 이미지가 원형으로 표시된다.  
 
-# 기본 위젯4 / widgets4.dart 파일 참조  
+# 기본 위젯4 / widgets4.dart 파일 참조 / 입력용 위젯
 1)**TextField()** 위젯을 통해 글자를 입력받고, InpuDecoration 클래스와 함께 사용하여 힌트 메시지나 외곽선등의 꾸밈 효과를 추가한다.  
 2)**CheckBox**와 **Swtich** 위젯을 통해 설정 화면 등에 많이 사용되는 체크박스, 라디오 버튼, 스위치를 표현한다. 이 둘은 상태를 나타낼 **불리언 타입의 변수가 필요**하고 **value 프로퍼티에 설정**한다. **onChanged** 이벤트는 체크값이 변할 때마다 발생하므로 StatefulWidget이어야 하며, **setsState()**를 통해 value 프로퍼티에 지정한 변숫값을 변경하여 UI를 다시 그린다.  
 3)**Radio**와 **RadioListTile**위젯을 통해 선택 그룹 중 하나를 선택할 때 사용한다. 어디까지를 터치 영역으로 볼 것이냐에 따라 Radio를 사용하거나 RadioListTile을 사용한다. Radio 그룹 내에서 하나만 선택을 하기 때문에 그룹이 되는 항목을 열거형(enum)으로 정의하고 **groupValue 프로퍼티**에 열거형으로 정의한 변수를 지정하고, onChanged 이벤트에서 변경된 값을 반영한다. RadioListTile은 가로 전체가 터치 영역이 된다.  
@@ -263,7 +263,7 @@ Widget _buildMiddle(){
 6)**DatePicker** 위젯을 통해 날짜를 선택한다. showDatePicker() 함수를 호출해야하며, 함수의 프로퍼티에는 context를 인수로 전달하고, initialDate는 초기 선택값, firstDate와 lastDate는 DatePicker에 표시할 날짜의 범위를 정하고, builder 프로퍼티는 테마를 설정할 때 사용한다.  
 7)**TimePicker** 위젯을 사용하여 시간을 선택한다. initialTime 프로퍼티에는 초기값을 지정하고, context가 필요하며, Future 타입으로 TimeOfDay 타입의 값을 반환한다.  
 
-# 기본 위젯5 / widgets5.dart 파일 참조  
+# 기본 위젯5 / widgets5.dart 파일 참조 / 애니메이션 효과
 1)글자나 그림 같이 이벤트 프로퍼티가 없는 위젯에 이벤트를 적용하고 싶을 때는 **GestureDetector**혹은 **InkWell**을 사용한다. 이 두 위젯은 터치 이벤트를 발생시키고 **onTap() 프로퍼티**에 이벤트를 작성한다. InkWell 위젯으로 감싸고 클릭하면 물결 효과가 나타나지만 GestureDetector 위젯은 그렇지 않다.  
 2)**Hero**위젯은 화면 전환시 자연스럽게 연결되는 애니메이션을 지원하여 그림을 탭하면 애니메이션되며 자연스러운 화면 전환이 이루어진다. Hero위젯은 애니메이션 효과의 대상이 되는 양쪽 화면의 위젯을 Hero 위젯으로 감싸고, tag 프로퍼티를 반드시 동일하게 지정한다. Hero위젯은 반드시 **child를 가져야한다**. 또한 Hero로 전환된 화면을 GestureDetector로 감싸고 onTap 이벤트로 Navigator.pop(context)를 하면 화면이 다시 돌아온다.  
 3)**AnimatedContainer**위젯은 한 화면 내에서 setState() 함수를 호출하여 화면을 새로 그릴 때 변경된 프로퍼티에 의해 애니메이션 되도록 해준다. Container 위젯과 쓰임새는 비슷하지면 **duration**프로퍼티는 필수이며, 애니메이션되는 데 걸리는 시간을 Duration 클래스를 사용해 정의할 수 있다. **Curves**클래스에는 미리 정의된 여러 애니메이션 효과가 있다.  
@@ -272,3 +272,17 @@ Widget _buildMiddle(){
 4-2) SliverFillRemaining 위젯에는 **스크롤 영역에 표시될 화면**을 정의한다. child에 작성한 내용의 크기가 작아도 SliverAppBar 부분이 축소될 때 딱 하나의 크기가 알아서 결정된다.  
 5)ListView를 사용하여 Sliver 효과를 주고 싶다면 ListView 대신 **SliverList**를 사용한다.  
 
+# 기본 위젯6 / widgets6.dart 파일 참조 / 내비게이션  
+1)**push**로 새로운 화면을 호출한다.
+```dart
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context)=>SecondClass())
+      );
+```
+첫 번째 인수로 context가 필요하고, 두 번째 인수로 MaterialPageRoute 인스턴스가 필요하다. MaterialPageRoute 클래스는 안드로이드와 iOS 각 플랫폼에 맞는 화면 전환을 지원해주고, builder 프로퍼티에는 BuildContext 인스턴스를 인수로 받고 이동할 화면의 클래스 인스턴스를 반환하는 함수를 작성한다.  
+2)**pop**으로 이전 화면으로 이동한다.  
+```dart
+      Navigator.pop(context);
+```  
+Navigator.push() 메서드로 새로운 화면이 표시되어도 이전 화면은 메모리에 남게 된다. 이때 Navigator.pop() 메서드로 현재 화면을 종료하고 이전 화면으로 돌아갈 수 있다. 
