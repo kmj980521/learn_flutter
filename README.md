@@ -265,5 +265,10 @@ Widget _buildMiddle(){
 
 # 기본 위젯5 / widgets5.dart 파일 참조  
 1)글자나 그림 같이 이벤트 프로퍼티가 없는 위젯에 이벤트를 적용하고 싶을 때는 **GestureDetector**혹은 **InkWell**을 사용한다. 이 두 위젯은 터치 이벤트를 발생시키고 **onTap() 프로퍼티**에 이벤트를 작성한다. InkWell 위젯으로 감싸고 클릭하면 물결 효과가 나타나지만 GestureDetector 위젯은 그렇지 않다.  
-2)**Hero**위젯은 화면 전환시 자연스럽게 연결되는 애니메이션을 지원하여 그림을 탭하면 애니메이션되며 자연스러운 화면 전환이 이루어진다. Hero위젯은 애니메이션 효과의 대상이 되는 양쪽 화면의 위젯을 Hero 위젯으로 감싸고, tag 프로퍼티를 반드시 동일하게 지정한다. 
+2)**Hero**위젯은 화면 전환시 자연스럽게 연결되는 애니메이션을 지원하여 그림을 탭하면 애니메이션되며 자연스러운 화면 전환이 이루어진다. Hero위젯은 애니메이션 효과의 대상이 되는 양쪽 화면의 위젯을 Hero 위젯으로 감싸고, tag 프로퍼티를 반드시 동일하게 지정한다. Hero위젯은 반드시 **child를 가져야한다**. 또한 Hero로 전환된 화면을 GestureDetector로 감싸고 onTap 이벤트로 Navigator.pop(context)를 하면 화면이 다시 돌아온다.  
+3)**AnimatedContainer**위젯은 한 화면 내에서 setState() 함수를 호출하여 화면을 새로 그릴 때 변경된 프로퍼티에 의해 애니메이션 되도록 해준다. Container 위젯과 쓰임새는 비슷하지면 **duration**프로퍼티는 필수이며, 애니메이션되는 데 걸리는 시간을 Duration 클래스를 사용해 정의할 수 있다. **Curves**클래스에는 미리 정의된 여러 애니메이션 효과가 있다.  
+4)**SliverAppBar**와 **SliverFillRemaining**은 화면 헤더를 동적으로 표현하는 위젯이다. 헤더를 위로 스크롤하면 헤더 부분이 작아지면서 헤더 하단에 있던 정적인 내용만 보이는 AppBar 형태로 애니메이션 되는데 이런 효과를 **Sliver효과**라고 한다. SliverAppBar는 Scaffold의 AppBar를 지정하지 않고, body에 CustomScrollView인스턴스를 지정하고, slivers프로퍼티에 SliverAppBar와 SliverFillRemaining위젯을 설정한다. SliverAppBar위젯의 Sliver 효과를 위한 최소한의 프로퍼티는 **pinned(축소시 상단에 AppBar가 고정되는지 설정)**, **expandedHeight(헤더의 최대높이)**, **flexibleSpace(늘어나는 영역의 UI 정의)** 3가지 이다.   
+4-1) flexibleSpace 위젯은 title과 background 프로퍼티를 활용하여 적절히 AppBar 영역이 확장되었을 때의 UI를 작성한다.  
+4-2) SliverFillRemaining 위젯에는 **스크롤 영역에 표시될 화면**을 정의한다. child에 작성한 내용의 크기가 작아도 SliverAppBar 부분이 축소될 때 딱 하나의 크기가 알아서 결정된다.  
+5)ListView를 사용하여 Sliver 효과를 주고 싶다면 ListView 대신 **SliverList**를 사용한다.  
 
