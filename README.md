@@ -275,14 +275,20 @@ Widget _buildMiddle(){
 # 기본 위젯6 / widgets6.dart 파일 참조 / 내비게이션  
 1)**push**로 새로운 화면을 호출한다.
 ```dart
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context)=>SecondClass())
-      );
+    onPressed: () async {
+              final person = Person('홍길동',20);
+              final result = await Navigator.push(context,MaterialPageRoute(builder: (context)=>SecondClass(person:person)));
+
+              print(result);
+            },
 ```
 첫 번째 인수로 context가 필요하고, 두 번째 인수로 MaterialPageRoute 인스턴스가 필요하다. MaterialPageRoute 클래스는 안드로이드와 iOS 각 플랫폼에 맞는 화면 전환을 지원해주고, builder 프로퍼티에는 BuildContext 인스턴스를 인수로 받고 이동할 화면의 클래스 인스턴스를 반환하는 함수를 작성한다.  
+push()메서드는 **Future**타입의 반환 타입을 가진다. 미레에 값이 들어올 것을 나타내는 클래스로 **await 키워드**를 메서드 실행 앞에 추가하고, await 키워드를 사용하는 메서드의 인수와 함수 본문 사이에 **async 키워드**를 추가한다. 어떤 일이 끝날 때까지 기다리면서 앱이 멈추지 않도록 하는 방식을 **비동기 방식**이라고 한다.
 2)**pop**으로 이전 화면으로 이동한다.  
 ```dart
-      Navigator.pop(context);
+     onPressed: (){
+              Navigator.pop(context,'ok');
+            },
 ```  
 Navigator.push() 메서드로 새로운 화면이 표시되어도 이전 화면은 메모리에 남게 된다. 이때 Navigator.pop() 메서드로 현재 화면을 종료하고 이전 화면으로 돌아갈 수 있다. 
+3)**@required**를 붙이면 필수 입력 인수를 나타낸다. 
