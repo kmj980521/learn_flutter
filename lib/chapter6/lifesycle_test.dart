@@ -5,20 +5,35 @@ class Person{
 
   Person(this.name, this.age);
 }
-class Widgets6 extends StatefulWidget {
+class Widgets7 extends StatefulWidget {
   @override
-  _Widgets6State createState() => _Widgets6State();
+  _Widgets7State createState() => _Widgets7State();
 }
 
-class _Widgets6State extends State<Widgets6> {
+class _Widgets7State extends State<Widgets7> {
   @override
   Widget build(BuildContext context) {
     return FirstClass();
   }
 }
 
-class FirstClass extends StatelessWidget {
+class FirstClass extends StatefulWidget {
 
+  @override
+  _FirstClassState createState() => _FirstClassState();
+}
+
+class _FirstClassState extends State<FirstClass> {
+  @override
+  void initState(){
+    super.initState();
+    print('FirstPage initState()');
+  }
+  @override
+  void dispose(){
+    super.dispose();
+    print('FirsPage dispose()');
+  }
   @override
   Widget build(BuildContext context) {
     print('FirsPage build()');
@@ -42,10 +57,25 @@ class FirstClass extends StatelessWidget {
   }
 }
 
-class SecondClass extends StatelessWidget {
+class SecondClass extends StatefulWidget {
   final Person person;
 
   SecondClass({@required this.person});
+
+  @override
+  _SecondClassState createState() => _SecondClassState();
+}
+
+class _SecondClassState extends State<SecondClass> {
+  void initState(){
+    super.initState();
+    print('Second initState()');
+  }
+  @override
+  void dispose(){
+    super.dispose();
+    print('Second dispose()');
+  }
   @override
   Widget build(BuildContext context) {
     print('Second build()');
@@ -56,7 +86,7 @@ class SecondClass extends StatelessWidget {
           child: FlatButton(
             onPressed: (){
               Navigator.pop(context,'ok');
-              print(person.age);
+              print(widget.person.age);
             },
             color: Colors.blue,
           ),
