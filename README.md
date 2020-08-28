@@ -302,4 +302,11 @@ Navigator.push() 메서드로 새로운 화면이 표시되어도 이전 화면�
   ---------------------------  
       1-1)AppBar의 centertitle 프로퍼티로 앱바의 가운데 글자를 위치할 수가 있다.  
       1-2)전체 테마를 변경할 때는 MaterialApp 클래스의 theme 프로퍼티를 설정해준다.  
-      1-3)AppBar 위젯의 **actions 프로퍼티**를 이용하여 위젯의 리스트를 정의하여 간단히 메뉴를 추가할 수가 있다. 
+      1-3)AppBar 위젯의 **actions 프로퍼티**를 이용하여 위젯의 리스트를 정의하여 간단히 메뉴를 추가할 수가 있다.  
+      1-4)Column의 mainAxisAlignment 프로퍼티를 MainAxisAlignment.spaceEvenly로 해주면 서로 적절한 간격을 둔다.  
+      1-5)**Opacity**위젯을 사용하여 투명도를 0.0~1.0 사이로 설정한다. 0.0은 완전히 투명한 상태여서 위젯이 위치해 있지만, 보이지 않게 된다.  
+      1-6)**PageView** 위젯을 사용해 **carousel_slider**라이브러리를 사용하여 자동 스크롤 지원 기능을 사용할 수 있다.  
+      1-7)CarouselSlider의 options프로퍼티에서 CarouselOptions()를 통해 height와 autoPlay를 조절할 수 있다.  
+      1-8)**ClipRRect** 위젯을 통해 child를 둥근 사각형으로 만든다. borderRadius 프로퍼티를 통해 모서리를 얼마나 둥글게 할지 설정하고, child로 Image를 asset 해준다.  
+      1-9)ListView를 사용할 때, 스크롤이 가능한 객체 안에 다시 스크롤 객체를 넣는 경우(ListView 위젯 안에 ListView 위젯이 들어간 상황)에는 **shrinkWrap**프로퍼티를 true로 설정해줘야 한다.  
+      1-10)스크롤 안에 스크롤을 넣는 경우로 안쪽 스크롤을 막아서 정상 동작이 되도록 ListView 위젯의 **physics 프로퍼티**에 NeverScrollableScrollPhysics 클래스의 인스턴스를 설정한다. 이것으로 이 리스트는 스크롤 기능이 정지되어 바깥쪽 스크롤이 정상적으로 동작하게 된다. 
