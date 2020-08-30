@@ -297,11 +297,11 @@ Navigator.push() 메서드로 새로운 화면이 표시되어도 이전 화면�
 6)**StatefulWidget** 클래스의 내비게이션 동작은 기존에 메모리에 남아 있던 화면도 모두 새로 그리는 동작을 취한다. 그렇기 때문에 StatefulWidget 클래스의 build() 메서드에서는 앱 성능에 지장을 줄만한 코드를 작성하면 안 된다.  
 7)위의 문제를 해결하기 위해, initState() 메서드를 사용한다. **initState()**메서드는 위젯이 생성될 때 호출이 되고, **dispose()**메서드는 위젯이 완전히 종료될 때(pop될 때) 호출된다. 계산이나 네트워크 요청 등의 로직은 build() 메서드가 아닌, initState() 메서드에서 수행해야 한다. StatefulWidget 클래스에는 build() 메서드 외에도 특정 타이밍에 실행되는 여러 메서드가 있는데 이러한 메서드들을 **생명주기** 메서드라고 부른다.  
 
-# 복잡한 UI 작성  
-  1) 내비게이션바 활용한 UI
+# 복잡한 UI 작성(1) 
+  1) 내비게이션바, CarouselSlider, ListView를 활용한 UI
   ---------------------------  
-      1-1)AppBar의 centertitle 프로퍼티로 앱바의 가운데 글자를 위치할 수가 있다.  
-      1-2)전체 테마를 변경할 때는 MaterialApp 클래스의 theme 프로퍼티를 설정해준다.  
+  1-1)AppBar의 centertitle 프로퍼티로 앱바의 가운데 글자를 위치할 수가 있다.  
+  1-2)전체 테마를 변경할 때는 MaterialApp 클래스의 theme 프로퍼티를 설정해준다.  
   1-3)AppBar 위젯의 **actions 프로퍼티**를 이용하여 위젯의 리스트를 정의하여 간단히 메뉴를 추가할 수가 있다.  
       1-4)Column의 mainAxisAlignment 프로퍼티를 MainAxisAlignment.spaceEvenly로 해주면 서로 적절한 간격을 둔다.  
       1-5)**Opacity**위젯을 사용하여 투명도를 0.0~1.0 사이로 설정한다. 0.0은 완전히 투명한 상태여서 위젯이 위치해 있지만, 보이지 않게 된다.  
