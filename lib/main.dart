@@ -8,6 +8,7 @@ import 'package:learn_flutter/chapter5/widgets4.dart';
 import 'package:learn_flutter/chapter6/lifesycle_test.dart';
 import 'package:learn_flutter/chapter6/widgets6.dart';
 import 'package:learn_flutter/chapter7_complicated_UI/complicated_UI1.dart';
+import 'package:learn_flutter/chapter7_complicated_UI/complicated_UI2.dart';
 
 
 import 'chapter5/widgets5.dart';
@@ -16,6 +17,6 @@ import 'chapter5/widgets5.dart';
 
 void main() {
   runApp(MaterialApp(
-      home:complicated_UI_example1()));
+      home:complicated_UI_example2()));
 }
 
