@@ -297,16 +297,31 @@ Navigator.push() 메서드로 새로운 화면이 표시되어도 이전 화면�
 6)**StatefulWidget** 클래스의 내비게이션 동작은 기존에 메모리에 남아 있던 화면도 모두 새로 그리는 동작을 취한다. 그렇기 때문에 StatefulWidget 클래스의 build() 메서드에서는 앱 성능에 지장을 줄만한 코드를 작성하면 안 된다.  
 7)위의 문제를 해결하기 위해, initState() 메서드를 사용한다. **initState()**메서드는 위젯이 생성될 때 호출이 되고, **dispose()**메서드는 위젯이 완전히 종료될 때(pop될 때) 호출된다. 계산이나 네트워크 요청 등의 로직은 build() 메서드가 아닌, initState() 메서드에서 수행해야 한다. StatefulWidget 클래스에는 build() 메서드 외에도 특정 타이밍에 실행되는 여러 메서드가 있는데 이러한 메서드들을 **생명주기** 메서드라고 부른다.  
 
-# 복잡한 UI 작성  
-  1) 내비게이션바 활용한 UI
+# 복잡한 UI 작성(1) 
+  1) 내비게이션바, CarouselSlider, ListView를 활용한 UI
   ---------------------------  
-      1-1)AppBar의 centertitle 프로퍼티로 앱바의 가운데 글자를 위치할 수가 있다.  
-      1-2)전체 테마를 변경할 때는 MaterialApp 클래스의 theme 프로퍼티를 설정해준다.  
-      1-3)AppBar 위젯의 **actions 프로퍼티**를 이용하여 위젯의 리스트를 정의하여 간단히 메뉴를 추가할 수가 있다.  
+  1-1)AppBar의 centertitle 프로퍼티로 앱바의 가운데 글자를 위치할 수가 있다.  
+  1-2)전체 테마를 변경할 때는 MaterialApp 클래스의 theme 프로퍼티를 설정해준다.  
+  1-3)AppBar 위젯의 **actions 프로퍼티**를 이용하여 위젯의 리스트를 정의하여 간단히 메뉴를 추가할 수가 있다.  
       1-4)Column의 mainAxisAlignment 프로퍼티를 MainAxisAlignment.spaceEvenly로 해주면 서로 적절한 간격을 둔다.  
       1-5)**Opacity**위젯을 사용하여 투명도를 0.0~1.0 사이로 설정한다. 0.0은 완전히 투명한 상태여서 위젯이 위치해 있지만, 보이지 않게 된다.  
       1-6)**PageView** 위젯을 사용해 **carousel_slider**라이브러리를 사용하여 자동 스크롤 지원 기능을 사용할 수 있다.  
       1-7)CarouselSlider의 options프로퍼티에서 CarouselOptions()를 통해 height와 autoPlay를 조절할 수 있다.  
       1-8)**ClipRRect** 위젯을 통해 child를 둥근 사각형으로 만든다. borderRadius 프로퍼티를 통해 모서리를 얼마나 둥글게 할지 설정하고, child로 Image를 asset 해준다.  
       1-9)ListView를 사용할 때, 스크롤이 가능한 객체 안에 다시 스크롤 객체를 넣는 경우(ListView 위젯 안에 ListView 위젯이 들어간 상황)에는 **shrinkWrap**프로퍼티를 true로 설정해줘야 한다.  
-      1-10)스크롤 안에 스크롤을 넣는 경우로 안쪽 스크롤을 막아서 정상 동작이 되도록 ListView 위젯의 **physics 프로퍼티**에 NeverScrollableScrollPhysics 클래스의 인스턴스를 설정한다. 이것으로 이 리스트는 스크롤 기능이 정지되어 바깥쪽 스크롤이 정상적으로 동작하게 된다. 
+      1-10)스크롤 안에 스크롤을 넣는 경우로 안쪽 스크롤을 막아서 정상 동작이 되도록 ListView 위젯의 **physics 프로퍼티**에 NeverScrollableScrollPhysics 클래스의 인스턴스를 설정한다. 이것으로 이 리스트는 스크롤 기능이 정지되어 바깥쪽 스크롤이 정상적으로 동작하게 된다.  
+      
+# 복잡한 UI 작성(2)
+   2) TextFormField, Form, Navigator를 활용한 UI
+   --------------------------------------------
+   2-1)사용자에게 값을 입력받을 때는 **TextField** 위젯또는 **TextFormField**위젯을 사용한다. **TextEditingController** 클래스의 인스턴스를 통해 TextField 위젯에 작성된 값을 얻을 수 있다.  
+   2-2)화면이 종료될 때는 반드시 위젯 트리에서 컨트롤러를 해제해야 한다.  
+   2-3)TextField 위젯에서는 controller 프로퍼티에 컨트롤러 변수를 설정한다. 이렇게 하면 TextEditingcontroller()로 생성된 인스턴스를 이용하여 TextField 인스턴스의 값을 얻거나 변경된 값을 모니터링 할 수 있다.  
+   2-4)TextField 위젯의 값이 변경될 때마다 무언가를 수행하고 싶다면 **addListener()**메서드를 사용한다.  
+   2-5)**Form**과 **TextFormField**를 사용하여 사용자 입력값을 검증한다.  
+   2-6)**TextFormField**위젯은 TextField 위젯이 제공하는 기능에 추가로 **validator** 프로퍼티를 활용한 검증 기능도 제공한다.  
+   2-7)검증에는 TextFormField 위젯을 사용하며, 검증할 내용 전체를 Form 위젯으로 감싼다. Form 위젯에는 유니크한 키를 지정해야 하며 **GlobalKey<FromState> 인스턴스**를 키로 사용한다.  
+   2-8)폼의 검증으로 **_fromKey.currenState.validate()**로 수행하며 true 또는 false 값을 반환한다.  
+   2-9)**trim()**메서드는 앞뒤 공백을 제거해준다.  
+   2-10)TextFormField 위젯의 decoration 프로퍼티를 사용하여 InputDecoration 클래스를 설정하여 외곽선, 힌트 등을 설정한다.  
+   2-11)TextField에 입력한 내용은 정수로 입력해도 문자열로 저장이 되기 때문에 문자열을 double 타입으로 전달받으려면 **double.parse()**함수를 사용해야 한다. 
