@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 class Todo{
@@ -8,6 +9,7 @@ class Todo{
 
 
 class use_firebase extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,14 +28,13 @@ class TodoListPage extends StatefulWidget {
 }
 
 class _TodoListPageState extends State<TodoListPage> {
-
-
   var _todoController = TextEditingController();
-
+  var _change = TextEditingController();
   @override
   void dispose(){
     super.dispose();
     _todoController.dispose();
+    _change.dispose();
   }
   @override
   Widget build(BuildContext context) {
@@ -53,10 +54,10 @@ class _TodoListPageState extends State<TodoListPage> {
                   )
                 ),
                 RaisedButton(
-                  child: Text('할 일 수정하기'),
-                  onPressed: ()=>changeTodo(Todo(_todoController.text)),
-                ),
+                  child: Text('추가'),
+                  onPressed: ()=>addTodo(Todo(_todoController.text)),
 
+                )
               ],
             ),
             StreamBuilder<QuerySnapshot>(
@@ -80,17 +81,34 @@ class _TodoListPageState extends State<TodoListPage> {
 
   Widget _buildItemWidget(DocumentSnapshot doc){
     final todo = Todo(doc['title'], isDone: doc['isDone']);
-    return ListTile(
-      onTap: ()=>_toggleTodo(doc),
-      title:Text(
-        todo.title,style: todo.isDone
-          ? TextStyle(decoration: TextDecoration.lineThrough, fontStyle: FontStyle.italic):
-            null
-      ),
-      trailing: IconButton(
-        icon: Icon(Icons.delete_forever),
-        onPressed: ()=>_deleteTodo(doc),
-      ),
+    return Column(
+      children: [
+        ListTile(
+          onTap: ()=>_toggleTodo(doc),
+          title:Text(
+            todo.title,style: todo.isDone
+              ? TextStyle(decoration: TextDecoration.lineThrough, fontStyle: FontStyle.italic):
+                null
+          ),
+          trailing: IconButton(
+            icon: Icon(Icons.delete_forever),
+            onPressed: ()=>_deleteTodo(doc),
+          ),
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: TextFormField(
+                controller: _change,
+              ),
+            ),
+            RaisedButton(
+              child: Text('수정'),
+              onPressed: ()=>changeTodo(doc, _change.text.trim()),
+            )
+          ],
+        )
+      ],
     );
   }
 
@@ -108,5 +126,7 @@ class _TodoListPageState extends State<TodoListPage> {
         {'isDone': !doc['isDone']});
   }
 
-  changeTodo(Todo todo) {}
+  changeTodo(DocumentSnapshot doc, String text) {
+    Firestore.instance.collection('todo').document(doc.documentID).updateData({'title': text});
+  }
 }
