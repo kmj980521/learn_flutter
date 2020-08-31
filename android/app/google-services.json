@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "925229148642",
+    "firebase_url": "https://my-todo-72141.firebaseio.com",
+    "project_id": "my-todo-72141",
+    "storage_bucket": "my-todo-72141.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925229148642:android:99bbbe3d28b4de2234f1bb",
+        "android_client_info": {
+          "package_name": "com.example.learn_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "925229148642-04nkt3v0fcd60iilm6q5n9lkbcotpfmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoKcYLBJqu4kYGTEcAbRy6eJLp9_Otxq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "925229148642-04nkt3v0fcd60iilm6q5n9lkbcotpfmd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

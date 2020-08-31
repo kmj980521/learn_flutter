@@ -17,7 +17,7 @@ class _Widgets5State extends State<Widgets5> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home:buildSliverList(),
+      home:buildSliverFillRemaining(),
     );
   }
 
@@ -33,6 +33,7 @@ class _Widgets5State extends State<Widgets5> {
               title:Text('Sliver'),
               background: Image.asset('images/global_button.png',fit:BoxFit.cover),
             ),
+
           ),
           SliverList(
             delegate: SliverChildListDelegate(items),
@@ -55,6 +56,7 @@ class _Widgets5State extends State<Widgets5> {
               title:Text('Sliver'),
               background: Image.asset('images/global_button.png',fit:BoxFit.cover),
             ),
+            elevation: 0.0,
           ),
           SliverFillRemaining(
             child:Center(
