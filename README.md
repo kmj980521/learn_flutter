@@ -324,4 +324,23 @@ Navigator.push() 메서드로 새로운 화면이 표시되어도 이전 화면�
    2-8)폼의 검증으로 **_fromKey.currenState.validate()**로 수행하며 true 또는 false 값을 반환한다.  
    2-9)**trim()**메서드는 앞뒤 공백을 제거해준다.  
    2-10)TextFormField 위젯의 decoration 프로퍼티를 사용하여 InputDecoration 클래스를 설정하여 외곽선, 힌트 등을 설정한다.  
-   2-11)TextField에 입력한 내용은 정수로 입력해도 문자열로 저장이 되기 때문에 문자열을 double 타입으로 전달받으려면 **double.parse()**함수를 사용해야 한다. 
+   2-11)TextField에 입력한 내용은 정수로 입력해도 문자열로 저장이 되기 때문에 문자열을 double 타입으로 전달받으려면 **double.parse()**함수를 사용해야 한다.  
+      
+# 복잡한 UI 작성(3)  
+   3) Timer를 이용하여 스탑워치 만들기
+   ---------------------------------
+   3-1)**BottomAppBar** 위젯은 하단에 배치하는 AppBar이다. Scaffold 위젯의 bottomNavigationBar 프로퍼티에 배치하는 것이 일반적이고, FloatingActionButton 위젯과도 자연스럽게 어울린다. BottomAppBar 위젯 자체로는 아무것도 없는 빈 영역이고, 일반적으로 하단 메뉴와 FloatingActionButton 위젯을 함께 사용하는 경우에 사용된다.  
+   3-2)특정 위치에 위치시키기 위해서는 **Positioned** 위젯을 사용한다.  
+   3-3)Timer 클래스는 dart:async 패키지에 포함된 클래스이다.
+   ```dart
+   Timer.periodic(Duration(milliseconds:10),(timer){ //0.01초에 한 번씩 작업을 수행
+   ///할 일})
+   ```
+   3-4)**map()** 함수는 기존 값을 다른 형태로 변환해준다. map() 함수를 사용하여 Text 위젯으로 감싸고 toList()로 다시 리스트 형태로 변환을 했다.  
+   
+# 복잡한 어플 구상하기  
+   -firebase 사용해보기
+   --------------------   
+   1)데이터베이스의 주요 기능을 한 단어로 요약하면 **CRUD**이다. 데이터를 추가(create)하고, 읽고(read), 수정하고(update), 삭제(delete)하는 것이다. 원하는 데이터를 가져오는(query)  
+   2)Firebase는 문서 기반의 구조라서 이해하기 쉽고, 실시간으로 데이터 읽기를 제공하는 특징이 있다. 
+   3)Friebase는 NoSQL 데이터베이스의 일종으로 자료의 저장 단위는 **문서**이다. 문서에는 **키-값**형태로 다양한 형태의 자료를 저장할 수 있다. 
