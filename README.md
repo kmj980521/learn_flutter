@@ -326,7 +326,7 @@ Navigator.push() 메서드로 새로운 화면이 표시되어도 이전 화면�
    2-10)TextFormField 위젯의 decoration 프로퍼티를 사용하여 InputDecoration 클래스를 설정하여 외곽선, 힌트 등을 설정한다.  
    2-11)TextField에 입력한 내용은 정수로 입력해도 문자열로 저장이 되기 때문에 문자열을 double 타입으로 전달받으려면 **double.parse()**함수를 사용해야 한다.  
 
-#복잡한 UI 작성(3)
+#복잡한 UI 작성(3)  
    3) Timer를 이용하여 스탑워치 만들기
    ---------------------------------
    3-1)**BottomAppBar** 위젯은 하단에 배치하는 AppBar이다. Scaffold 위젯의 bottomNavigationBar 프로퍼티에 배치하는 것이 일반적이고, FloatingActionButton 위젯과도 자연스럽게 어울린다. BottomAppBar 위젯 자체로는 아무것도 없는 빈 영역이고, 일반적으로 하단 메뉴와 FloatingActionButton 위젯을 함께 사용하는 경우에 사용된다.  
