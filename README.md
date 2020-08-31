@@ -336,3 +336,4 @@ Navigator.push() 메서드로 새로운 화면이 표시되어도 이전 화면�
    Timer.periodic(Duration(milliseconds:10),(timer){ //0.01초에 한 번씩 작업을 수행
    ///할 일})
    ```
+   3-4)**map()** 함수는 기존 값을 다른 형태로 변환해준다. map() 함수를 사용하여 Text 위젯으로 감싸고 toList()로 다시 리스트 형태로 변환을 했다. 
