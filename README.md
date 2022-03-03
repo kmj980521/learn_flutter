@@ -1,3 +1,6 @@
+# 공부용입니다. 
+## README.md 수정 예정
+
 # learn_flutter
 
 A new Flutter application.
