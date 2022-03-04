@@ -1,7 +1,8 @@
 # 공부용입니다. 
 ## README.md 수정 예정
 
-# learn_flutter
+<details><summary>접고 펴는 기능
+</summary> # learn_flutter
 
 A new Flutter application.
 
@@ -351,3 +352,4 @@ Navigator.push() 메서드로 새로운 화면이 표시되어도 이전 화면�
   - Firestore 문서는 DocumentSnapshot 클래스의 인스턴스이다.  
   - 지속적으로 흘러들어오는 스트림을 통해 UI를 그린다. 여기서 StreamBuilder 클래스를 사용하는데, 스트림과 연결해두면 **스트림의 값이 변할 때마다 builder 부분이 다시 호출된다.** 이때 매번 화면 전체를 다시 그리지 않고 **StreamBuilder로 일부분만 그린다.** Firestore에서는 **snapshots() 메서드**를 사용해 데이터의 스트림을 쉽게 얻을 수 있다.  
   - 데이터를 삭제할 때도 문서 ID가 필요하기 때문에 **DocumentSnapshot**을 인수로 받도록 한다.
+</details>
