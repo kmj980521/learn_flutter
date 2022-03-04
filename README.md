@@ -321,12 +321,12 @@ Navigator.push() 메서드로 새로운 화면이 표시되어도 이전 화면�
    - 사용자에게 값을 입력받을 때는 **TextField** 위젯또는 **TextFormField**위젯을 사용한다. **TextEditingController** 클래스의 인스턴스를 통해 TextField 위젯에 작성된 값을 얻을 수 있다.  
    - 화면이 종료될 때는 반드시 위젯 트리에서 컨트롤러를 해제해야 한다.  
    - TextField 위젯에서는 controller 프로퍼티에 컨트롤러 변수를 설정한다. 이렇게 하면 TextEditingcontroller()로 생성된 인스턴스를 이용하여 TextField 인스턴스의 값을 얻거나 변경된 값을 모니터링 할 수 있다.  
-   - TextField 위젯의 값이 변경될 때마다 무언가를 수행하고 싶다면 **addListener()**메서드를 사용한다.  
-   - **Form**과 **TextFormField**를 사용하여 사용자 입력값을 검증한다.  
-   - **TextFormField**위젯은 TextField 위젯이 제공하는 기능에 추가로 **validator** 프로퍼티를 활용한 검증 기능도 제공한다.  
+   - TextField 위젯의 값이 변경될 때마다 무언가를 수행하고 싶다면 **addListener()** 메서드를 사용한다.  
+   - **Form** 과 **TextFormField** 를 사용하여 사용자 입력값을 검증한다.  
+   - **TextFormField** 위젯은 TextField 위젯이 제공하는 기능에 추가로 **validator** 프로퍼티를 활용한 검증 기능도 제공한다.  
    - 검증에는 TextFormField 위젯을 사용하며, 검증할 내용 전체를 Form 위젯으로 감싼다. Form 위젯에는 유니크한 키를 지정해야 하며 **GlobalKey<FromState> 인스턴스**를 키로 사용한다.  
    - 폼의 검증으로 **_fromKey.currenState.validate()**로 수행하며 true 또는 false 값을 반환한다.  
-   - **trim()**메서드는 앞뒤 공백을 제거해준다.  
+   - **trim()** 메서드는 앞뒤 공백을 제거해준다.  
    - TextFormField 위젯의 decoration 프로퍼티를 사용하여 InputDecoration 클래스를 설정하여 외곽선, 힌트 등을 설정한다.  
    - TextField에 입력한 내용은 정수로 입력해도 문자열로 저장이 되기 때문에 문자열을 double 타입으로 전달받으려면 **double.parse()**함수를 사용해야 한다.  
       
