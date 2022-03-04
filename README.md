@@ -1,7 +1,7 @@
 # 공부용입니다. 
 ## README.md 수정 예정
 
-<details><summary>접고 펴는 기능
+<details><summary>내용을 더 깔끔하게 수정할 예정입니다
 </summary> # learn_flutter
 
 A new Flutter application.
