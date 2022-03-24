@@ -166,6 +166,281 @@ class Lecture<T, E>{
 ```
 
 
+## 형 변환
+
+```dart
+
+void main() {
+ 
+  List<String> numbers = ['1','2','3','4','5'];
+  print(numbers.asMap());
+  print(numbers.toSet()); // Set 형태로 
+  
+  
+  Map numbersMap = numbers.asMap(); // Map 형태로 
+  print(numbersMap.keys);
+  print(numbersMap.values.toList()); // List 형태로 
+  
+  
+  Set numbersSet = Set.from(numbers); // Set 형태로 
+  
+
+
+```
+
+
+# Functional Programming 
+
+
+## Map
+
+```dart
+
+void main() {
+ 
+  List<String> numbers = ['1','2','3','4','5'];
+  
+  final newNumbers = numbers.map((x){
+    return '숫자: $x';
+  }); // x 파라미터를 받고, return 한 값이 대체된다 
+  print(newNumbers.toList()); // 원래는 iterable 형태 
+        
+  final newNumbers2 = numbers.map((x) => '숫자 $x');
+  print(newNumbers2);
+  
+  String numbers2 = '13579';
+  final parsed = numbers2.split('').map((x)=>'$x.jpg').toList(); // 문자 단위로 split하고, list이니 map으로 값을 바꿔 iterable 형태로 만든 후 List로 만든다 
+  
+  print(parsed);
+}
+
+```
+
+- Map을 사용하면 계속 새로운 리스트가 나온다 
+
+
+```dart
+
+void main() {
+ 
+  Map<String, String> harryPotter= {
+    'Harry Potter' : '해리포터',
+    'Ron Weasley' : '론 위즐리',
+    'Hermione Granger' : '헤르미온느 그레인저'
+  };
+  
+  // Map to Map
+  final result = harryPotter.map(
+  (key, value) => MapEntry(
+    'Harry Potter Character $key',
+    '해리포터 캐릭터 $value'
+    )
+  );
+  print(result);
+  
+  
+  // Map to List
+  final keys = harryPotter.keys.map((x) => 'HPC $x').toList();
+  final values = harryPotter.values.map((x) => '해리포터 $x').toList();
+  
+  print(keys);
+  print(values);
+}
+
+```
+
+- Map은 key-value가 한 쌍으로 온다
+
+- MapEntry를 이용하여 새로운 Map을 만든다 
+
+
+## where
+
+- 조건식으로 true, false를 반환하고 true면 그 값을 keep 한다 
+
+- 필터링 기능으로 사용한다 
+
+```dart
+
+void main() {
+ 
+  List<Map<String,String>> people = [
+    {
+      'name' : '홍길동',
+      'group' : 'Man'
+    },
+    {
+      'name' : '강감찬',
+      'group' : 'Man'
+    },
+    {
+      'name' : '이순신',
+      'group' : 'Man'
+    },
+    {
+      'name' : '유관순',
+      'group' : 'Woman'
+    },
+    
+  ];
+  
+  // where는 조건 
+  final s = people.where((x)=> x['group'] == 'Man');
+  print(s);
+}
+
+```
+
+## reduce 
+
+```dart
+
+- 맨 처음에는 첫 파라미터에는 리스트의 첫 번째 값, 두 번째 파라미터에는 리스트의 두 번째 값이 들어간다
+
+- 그 다음부터는 이전에 구했던 total이 prev가 된다. 이전 함수에서 return 해준 값이 다음 함수를 실행할 때의 첫 번째 파라미터 값이 된다.  
+void main() {
+ 
+  List<int> numbers = [
+    1,
+    3,
+    5,
+    7,
+    9,
+  ];
+ 
+  // final result = numbers.reduce((prev,next) => prev + next);
+   
+  final result = numbers.reduce((prev,next){
+    print('--------');
+    print('previous : $prev');
+    print('next : $next');
+    print('total : ${prev+next}');
+    
+    return prev + next;
+  });
+  print(result); // 25
+}
+
+```
+
+- reduce는 반환되는 값의 타입이 각각의 태초가 된 리스트의 타입과 똑같아야 한다
+
+
+
+## fold
+
+- Generic으로 반환받을 값을 작성해준다
+- 시작값, (함수)
+- 맨 처음 실행했을 때 prev에는 시작값을, next에는 리스트의 첫 번째 값을 받고, 그 후에는 prev는 이전 함수에서 return 받은 값이 된다
+
+```dart
+
+void main() {
+ 
+  List<int> numbers = [1,3,5,7,9];
+  
+  final sum = numbers.fold<int>(0, (prev,next) => prev + next);
+  
+  print(sum);
+  
+  List<String> words = [
+    '안녕하세요 ',
+    '반갑습니다 ',
+    '환영합니다. '
+  ];
+  
+  final sentence = words.fold<String>('',(prev,next) => prev + next);
+  print(sentence);
+  
+  final count = words.fold<int>(0,(prev,next) => prev + next.length);
+  print(count);
+  
+}
+
+```
+
+## Cascading Operator
+
+- **...키워드** 를 사용한다
+- 리스트 안에 값을 풀어놓는 역할을 한다 
+
+- ...을 사용하면 완전히 새로운 리스트에 값을 풀어놓는 것이다
+
+```dart
+
+void main() {
+  List<int> even = [2,4,6,8];
+  
+  List<int> odd = [1,3,5,7]; 
+ 
+  print([...even, ...odd]); // 완전히 새로운 리스트가 된다 
+  
+}
+
+```
+
+## 모두 적용
+
+```dart
+
+final parsedPeople = people.map(
+  (x) =>Person(
+     name : x['name']!,
+     group : x['group']!,
+    )
+  ).where((x) => x.group=='BTS').toList();
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
