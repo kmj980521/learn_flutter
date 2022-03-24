@@ -1,6 +1,9 @@
 # 공부용입니다. 
 ## README.md 수정 예정
 
+## 실행 도중 타입 판별
+- **프로퍼티.runTimeType**
+
 ## optional parameter - 있어도 되고, 없어도 되는 파라미터 
 
 ```dart
@@ -61,6 +64,91 @@ int calculate(int x, int y, int z, Operation operation){
 }
 
 ```
+
+## 클래스 선언
+
+```dart
+
+  class Idol{
+  final String name;
+  final List<String> members ; // immutable 프로그래밍을 위해 final을 작성한다
+  
+  const Idol(this.name, this.members);
+
+  // named constructor
+  Idol.fromList(List values): this.members = values[0], this.name = values[1];
+}
+```
+
+
+- const를 사용하여 클래스 선언 및 인스턴스 공유 
+
+```dart
+
+void main() {
+  // const로 선언하면 이름만 다른 클래스를 선언해도 같은 인스턴스가 된다
+  Idol blackPink =const Idol(
+      '블랙핑크',
+    ['지수','제니','리사','로제']
+  );
+  Idol blackPink2 =const Idol(
+      '블랙핑크',
+    ['지수','제니','리사','로제']
+  );
+ }
+
+```
+
+## getter / setter 
+
+```dart
+void main(){
+  print(blackPink.firstMember);
+  print(bts.firstMember);
+  blackPink.firstMember = "코팩";
+  bts.firstMember = "아이언맨";
+  print(blackPink.firstMember);
+  print(bts.firstMember);
+}
+
+
+class Idol{
+  // getter
+  String get firstMember{
+    return this.members[0];
+  }
+  
+  // setter
+  // 요즘은 final로 변수값 변경을 못하게끔 하기 때문에 setter를 쓰지 않는 추세이다 
+  set firstMember(String name ){
+    this.members[0] = name;
+  }
+
+}
+
+```
+
+## private 
+
+- 클래스 이름 앞에 _ (underscore)를 붙인다
+
+- 같은 파일에서만 가능하다
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <details><summary>내용을 더 깔끔하게 수정할 예정입니다
