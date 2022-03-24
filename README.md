@@ -8,7 +8,7 @@ void main(){
   print(addNumbers(10)); // y는 defalut로 20, z는 default로 30의 값을 가진다. 
 }
 
-addNumbers(int x, [int y = 20, int z = 30 ])
+addNumbers(int x, [int y = 20, int z = 30 ]) // y와 z는 있어도 되고, 없어도 되는 값. 만약 [int y, int z] 만 있으면 x와 z에 null 값이 올 수 있기 때문에 적절한 처리를 해준다
 {
   return x+y+z;
 }
