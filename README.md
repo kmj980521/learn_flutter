@@ -1,6 +1,68 @@
 # 공부용입니다. 
 ## README.md 수정 예정
 
+## optional parameter - 있어도 되고, 없어도 되는 파라미터 
+
+```dart
+void main(){
+  print(addNumbers(10)); // y는 defalut로 20, z는 default로 30의 값을 가진다. 
+}
+
+addNumbers(int x, [int y = 20, int z = 30 ])
+{
+  return x+y+z;
+}
+
+```
+
+## named parameter - 이름이 있는 파라미터로 순서가 중요하지 않다 
+
+- required 키워드가 붙으면 값을 지정해서 넣어줘야 한다
+
+
+```dart
+
+void main(){
+  print(addNumbers(x:10,y:30,z:50));
+  print(addNumbers(y:50, x:30));
+}
+
+addNumbers({
+  required int x,
+  required int y,
+  int z = 30,
+  
+}) {
+  return x+y+z;
+}
+
+```
+
+
+## typedef
+
+```dart
+
+void main(){
+  int result3 = calculate(30,40,50,add);
+  print(result3);
+}
+
+typedef Operation = int Function(int x, int y, int z);
+
+
+int add(int x, int y, int z) => x+y+z;
+
+int subtract(int x, int y, int z) => x-y-z;
+
+
+int calculate(int x, int y, int z, Operation operation){
+  return operation(x,y,z);
+}
+
+```
+
+
 <details><summary>내용을 더 깔끔하게 수정할 예정입니다
 </summary> # learn_flutter
 
