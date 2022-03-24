@@ -137,7 +137,33 @@ class Idol{
 
 
 
+## generic
 
+```dart
+
+  void main() {
+  
+  Lecture<String,String> lecture1 = Lecture('123','lecture1');
+  lecture1.printType();
+  
+  Lecture<int,String> lecture2 = Lecture(123,'lecture2');
+  lecture2.printType();
+}
+
+
+class Lecture<T, E>{
+  final T id;
+  final E name;
+  
+  Lecture(this.id, this.name); 
+  
+  
+  void printType(){
+    print(id.runtimeType);
+  }
+}
+
+```
 
 
 
