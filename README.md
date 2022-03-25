@@ -499,7 +499,7 @@ Future<void> addNumbers(int number1, int number2)  async {
 ![image](https://user-images.githubusercontent.com/61898890/160043646-15f821c4-1a9a-46e5-9a50-96009cda43da.png)
 
 
-
+- Future<> 타입을 반환하는 함수에서 return을 사용하여 값을 반환해도 된다.(자동으로 Future로 감싸서 반환해준다)
 
 
 
