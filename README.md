@@ -1,6 +1,9 @@
 # 공부용입니다. 
 ## README.md 수정 예정
 
+<details><summary> dar
+</summary>
+
 ## 실행 도중 타입 판별
 - **프로퍼티.runTimeType**
 
@@ -65,6 +68,11 @@ int calculate(int x, int y, int z, Operation operation){
 
 ```
 
+</details?  
+  
+<details><summary>OOP
+</summary>  
+  
 ## 클래스 선언
 
 ```dart
@@ -187,8 +195,12 @@ void main() {
 
 
 ```
+  
+</details>
 
-
+<details><summary>Functional Programming
+</summary>  
+  
 # Functional Programming 
 
 
@@ -392,7 +404,12 @@ final parsedPeople = people.map(
 
 ```
 
+  </details>  
+  
 
+<details><summary>Asynchronous Programming
+</summary>  
+  
 # Asynchronous Programming - 비동기 프로그래밍 
 
 ## Future 
@@ -616,6 +633,7 @@ Stream<int> calculate(int number) async* {
 
 ```
 
+</details>
 
 
 
