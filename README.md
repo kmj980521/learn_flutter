@@ -397,7 +397,7 @@ final parsedPeople = people.map(
 
 ## Future 
 
-`Future.delayed( delaytime, method(){})
+`Future.delayed( delaytime, method(){})`
 
 - 2개의 파라미터가 필요하다
 
