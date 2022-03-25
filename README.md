@@ -1,7 +1,7 @@
 # 공부용입니다. 
 ## README.md 수정 예정
 
-<details><summary> dar
+<details><summary> dart 
 </summary>
 
 ## 실행 도중 타입 판별
@@ -68,7 +68,7 @@ int calculate(int x, int y, int z, Operation operation){
 
 ```
 
-</details?  
+</details>
   
 <details><summary>OOP
 </summary>  
