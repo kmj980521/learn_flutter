@@ -502,28 +502,119 @@ Future<void> addNumbers(int number1, int number2)  async {
 - Future<> 타입을 반환하는 함수에서 return을 사용하여 값을 반환해도 된다.(자동으로 Future로 감싸서 반환해준다)
 
 
+## Stream 
+
+- **yield 키워드** 를 사용하여 stream이 완료가 되기 전에 값을 계속 받아올 수 있다 
+
+- async 패키지를 import 한다 
+
+- StreamController를 만들고, controller의 stream을 선언한다
+
+- stream에는 listen()이라는 메서드가 존재하고 val 값은 매번 새로 들어오는 값을 의미하고, 값이 들어올 때마다 새로 수행할 함수를 정의한다 
+
+```dart
+
+import 'dart:async';
 
 
+void main() {
+
+  final controller = StreamController();
+  final stream = controller.stream;
+  
+  final streamListener1 = stream.listen((val){
+    print('Listener 1 + $val');
+    
+  }); // 값을 들어올 때마다 함수가 실행 
+  
+  controller.sink.add(1); // sink에 1을 삽입
+  controller.sink.add(2);
+  controller.sink.add(3);
+  controller.sink.add(4);
+  controller.sink.add(5);
+  
+}
+
+```
+
+- `controller.stream` : 1번의 listener만 생성이 가능하다
+
+- `controller.stream.asBroadcastStream();` : BroadCastStream으로 바꾸며 여러번 listener를 등록하게 한다
 
 
+### 비동기 프로그래밍에 함수형 프로그래밍을 접목시키기 
+
+```dart
+
+final streamListener1 = stream.where((val)=>val %2 == 0).listen((val){
+    print('Listener 1 + $val');
+  }); // 값을 들어올 때마다 함수가 실행 
+  
+  final streamListener2 = stream.where((val)=>val %2 == 1).listen((val){
+    print('Listener 2 + $val');
+  });
+
+```
+
+### 값을 Stream으로 계속 보내주기 
+
+- async* 키워드를 사용하여 Stream을 사용한다 
+- 반환 값 또한, Stream<>로 선언한다 
+
+- 중간중간 return 되는 값들은 **yield 키워드**를 사용한다 
 
 
+```dart
+
+import 'dart:async';
 
 
+void main() {
+  calculate(1).listen((val){
+    print('calculate(1): $val');
+  });
+}
+
+Stream<int> calculate(int number) async* {
+  for(int i=0; i<5; i++){
+    yield i * number;
+  }
+}
+
+```
 
 
+### Stream에서의 async 프로그래밍 
 
 
+- `await Future.delayed(Duration(seconds:1));` : 코드를 추가해 async 프로그래밍을 구현한다 
+
+- ' yield* ' 은 해당하는 스트림의 모든 값을 다 가져온다  - await와 비슷하다
+
+```dart
+
+void main() {
+  playAllStream().listen((val){
+    print(val);
+  });
+}
+
+// 
+Stream<int> playAllStream() async*{
+  yield* calculate(1);
+  yield* calculate(1000);
+}
 
 
+Stream<int> calculate(int number) async* {
+  for(int i=0; i<5; i++){
+    yield i * number;
+    
+    await Future.delayed(Duration(seconds:1));
+  }
+}
 
-
-
-
-
-
-
-
+```
 
 
 
