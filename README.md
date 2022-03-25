@@ -393,20 +393,108 @@ final parsedPeople = people.map(
 ```
 
 
+# Asynchronous Programming - 비동기 프로그래밍 
+
+## Future 
+
+`Future.delayed( delaytime, method(){})
+
+- 2개의 파라미터가 필요하다
 
 
+- 첫 번째 파라미터는 지연할 기간을 의미하고 (얼마나 지연할 것인지) Duration 클래스를 사용한다
+- 두 번째 파라미터는 지연 시간이 지난 후 실행할 함수이다 
+
+```dart
+
+void main() {
+  // Future -> 미래에 받아올 값을 저장 
+  
+  
+  Future<String> name = Future.value('코팩');
+  
+  Future<int> number = Future.value(1);
+  
+  Future<bool> isTrue = Future.value(true);
+  
+  addNumbers(1,1);
+  addNumbers(2,2);
+  
+}
+
+void addNumbers(int number1, int number2){
+  print('계산 시작: $number1 + $number2');
+  
+  //서버 시뮬레이션
+  Future.delayed(Duration(seconds :2), (){
+    print('계산 완료: $number1 + $number2 = ${number1+number2}');
+  });
+  print('함수 완료');
+}
+
+```
+
+![image](https://user-images.githubusercontent.com/61898890/160042640-c5d1c716-b578-4288-b8d9-14b2d4b2a82b.png)
 
 
+## Await
 
+- 함수 구현부분 전에 async를 써준다
 
+- async와 await 키워드를 사용함으로 코드 실행을 실제로 논리적으로 순서대로 실행되도록 한다
 
+- **await 키워드** : await 다음 코드는 현재 코드가 끝나기 전에는 실행하지 않게 한다. async 코드를 논리적으로 기다릴 수 있다
 
+- 실제로 CPU가 멈추지 않고, 보이는 것만 순차적으로 하게 보인다
 
+```dart
+ 
+void addNumbers(int number1, int number2)  async {
+  print('계산 시작: $number1 + $number2');
+  
+  //서버 시뮬레이션
+  await Future.delayed(Duration(seconds :2), (){
+    print('계산 완료: $number1 + $number2 = ${number1+number2}');
+  });
+  print('함수 완료: $number1 + $number2');
+}
 
+```
 
+- main에 async를 붙여 한 코드가 순사적으로 실행되게끔 
 
+- async로 받는 반환 값은 Future 타입이므로 함수 본체의 반환 타입을 바꾼다
 
+```dart
 
+void main() async{
+  // Future -> 미래에 받아올 값을 저장 
+  
+  
+  Future<String> name = Future.value('코팩');
+  
+  Future<int> number = Future.value(1);
+  
+  Future<bool> isTrue = Future.value(true);
+  
+  await addNumbers(1,1);
+  
+  await addNumbers(2,2);
+  
+}
+// 함수 구현부분 전에 async를 써준다. 
+// async와 await 키워드를 사용함으로 코드 실행을 실제로 논리적으로 순서대로 실행되도록 한다
+Future<void> addNumbers(int number1, int number2)  async {
+  print('계산 시작: $number1 + $number2');
+  
+  //서버 시뮬레이션
+  await Future.delayed(Duration(seconds :2), (){
+    print('계산 완료: $number1 + $number2 = ${number1+number2}');
+  });
+  print('함수 완료: $number1 + $number2');
+}
+
+```
 
 
 
